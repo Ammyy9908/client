@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import './W3.css';
+import React from 'react'
+import Main from './components/Main';
+import Details from './components/Details';
+import LoginCribwise from './components/LoginCribwise';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FrontPage from './components/FrontPage';
+import Header from './components/header';
+import Footer from './components/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (     
+    <Router>
+      <Header/>
+      <Routes>
+          <Route exact path="/" element={<FrontPage/>} />
+          <Route exact path="/login" element={<LoginCribwise />} />
+          <Route exact path="/details" element={<Details />} />
+      </Routes>
+      <Footer/>
+    </Router>
+   
   );
 }
 
